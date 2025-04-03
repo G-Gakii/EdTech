@@ -7,6 +7,11 @@ from rest_framework.permissions import IsAuthenticated
 from user_app.models import User
 from django.utils.timezone import now
 from django.shortcuts import get_object_or_404
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework import serializers
+
+
 
 
 
@@ -62,6 +67,18 @@ class ResendOtp(APIView):
            return Response({"message":"A new otp has been sent to your email"},status=status.HTTP_200_OK)
         except:
           return Response({"error","User not found"},status=status.HTTP_400_BAD_REQUEST)
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+       data=super().validate(attrs)
+       user=self.user
+       if not user.isVerified:
+           raise serializers.ValidationError({"error":"User is not verified"})
+       return data
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
+   
             
         
 class ResetPassword(APIView):
