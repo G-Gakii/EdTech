@@ -1,5 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser,BaseUserManager
+from django.utils.timezone import now
+from datetime import timedelta
+from django.core.mail import send_mail
+import random
+from dotenv import load_dotenv
+import os
+
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -23,13 +30,30 @@ class UserManager(BaseUserManager):
         user=self.create_user(
             username=username,
             email=email,
-            password=password,
-            isVerified=isVerified,
+            password=None,
+            isVerified=True,
             is_staff=True,
             is_superuser=True
         )
+        if password:
+            user.set_password(password)
         user.save()
         return user
+    def generate_otp_and_send_mail(self,user:'User'):
+        otp=str(random.randint(100000,999999))
+        user.otp=otp
+        user.otp_expiration=now()+timedelta(minutes=5)
+        user.save()
+        
+        send_mail(
+            subject="Verification Code",
+            message=f" Hello, {user.username}.Your otp is {otp}.it expires in 5 minutes",
+            from_email=os.environ.get('EMAIL'),
+            recipient_list=[user.email]
+        )
+        
+        print(os.environ.get('EMAIL'))
+        
         
 
 class User(AbstractUser):
@@ -37,6 +61,8 @@ class User(AbstractUser):
     email=models.EmailField(verbose_name="email",max_length=255,unique=True)
     password=models.CharField(verbose_name="password",max_length=255)
     isVerified=models.BooleanField(verbose_name="isVerified",default=False)
+    otp=models.CharField(verbose_name="OTP",max_length=6,blank=True,null=True)
+    otp_expiration=models.DateTimeField(verbose_name="OTP Expiration",blank=True,null=True)
     
     objects=UserManager()
     
