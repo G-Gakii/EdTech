@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import serializers
+from rest_framework import permissions
 
 
 
@@ -41,12 +42,13 @@ class RegisterUser(APIView):
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         
 class verifyOtp(APIView):
-    def post(self,request,id):
+    permission_classes = [IsAuthenticated]
+    def post(self,request):
        
         otp=request.data.get('otp')
         
         try:
-            user = get_object_or_404(User, id=id)
+            user = request.user
             if user.otp == otp and user.otp_expiration > now():
                 user.isVerified=True
                 user.otp=None
@@ -59,10 +61,13 @@ class verifyOtp(APIView):
            return Response({"error","User not found"},status=status.HTTP_400_BAD_REQUEST)
     
     
-class ResendOtp(APIView):   
-    def post(self,request,id):
+class ResendOtp(APIView):
+    permission_classes = [IsAuthenticated]   
+    def post(self,request):
         try:
-           user=get_object_or_404(User, id=id)
+           user=request.user
+           if user.isVerified:
+               return Response({"message":"you are already verified"},status=status.HTTP_200_OK)
            User.objects.generate_otp_and_send_mail(user)
            return Response({"message":"A new otp has been sent to your email"},status=status.HTTP_200_OK)
         except:
@@ -82,10 +87,11 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             
         
 class ResetPassword(APIView):
-    def post(self,request,id):
+    permission_classes = [IsAuthenticated]   
+    def post(self,request):
         password=request.data.get('password')
         try:
-            user=get_object_or_404(User,id=id)
+            user=request.user
             if user:
                 user.set_password(password)
                 user.save()
