@@ -1,12 +1,9 @@
-import React from "react";
-import RegisterUser from "./components/auth/RegisterUser";
-import LoginUser from "./components/auth/LoginUser";
+import HomePage from "./components/pages/Homepage";
 
 const App = () => {
   return (
     <div>
-      <RegisterUser />
-      <LoginUser />
+      <HomePage />
     </div>
   );
 };

@@ -1,0 +1,6 @@
+@import "src/variables.css";
+
+.links {
+  color: var(--NavyBlue) !important;
+  text-transform: capitalize;
+}

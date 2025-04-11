@@ -1,0 +1,7 @@
+@import "/src/variables.css";
+
+.donate {
+  background-color: var(--gold);
+  color: var(--White);
+  font-size: 1.2rem;
+}

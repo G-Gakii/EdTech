@@ -1,0 +1,6 @@
+@import "src/variables.css";
+
+.material {
+  background-color: var(--NavyBlue);
+  color: var(--White);
+}

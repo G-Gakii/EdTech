@@ -1,0 +1,21 @@
+:root {
+  --NavyBlue: #0c2d48;
+  --Cream: #efdfc6;
+  --White: #ffffff;
+  --gold: #d4a857;
+  --DarkGray: #333333;
+  --LightGray: #eaeaea;
+}
+
+/* 1.  (Header/Footer, Buttons, Text)
+    * #0C2D48 (or close to #112D4E)
+2. Cream / Light Beige (Main background)
+    * #F5F2ED (soft and neutral)
+3. White (Cards, buttons, content background)
+    * #FFFFFF
+4. Gold / Warm Yellow (Logo icon, “Donate Securely” button)
+    * #D4A857 (or close to #C19A54)
+5. Dark Gray / Almost Black (Text)
+    * #333333 or #1A1A1A
+6. Light Gray (Buttons, borders)
+    * #EAEAEA or #DDDDDD */

@@ -107,6 +107,7 @@ class Logout(APIView):
             try:
                 refresh_token = request.data.get("refresh")
                 token = RefreshToken(refresh_token)
+                # remove the access token and blacklist access token
                 token.blacklist()
                 return Response({"message":"you have logged out"},status=status.HTTP_200_OK)
                 
