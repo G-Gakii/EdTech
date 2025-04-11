@@ -11,6 +11,9 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import serializers
 from rest_framework import permissions
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from django.db import transaction
+
 
 
 
@@ -19,6 +22,7 @@ from rest_framework import permissions
 
 class RegisterUser(APIView):
     def post(self,request):
+      with transaction.atomic():
         serializer=UserSerializer(data=request.data)
         data={
             
@@ -44,6 +48,7 @@ class RegisterUser(APIView):
 class verifyOtp(APIView):
     permission_classes = [IsAuthenticated]
     def post(self,request):
+      with transaction.atomic():
        
         otp=request.data.get('otp')
         
@@ -64,6 +69,7 @@ class verifyOtp(APIView):
 class ResendOtp(APIView):
     permission_classes = [IsAuthenticated]   
     def post(self,request):
+       with transaction.atomic():  
         try:
            user=request.user
            if user.isVerified:
@@ -89,6 +95,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
 class ResetPassword(APIView):
     permission_classes = [IsAuthenticated]   
     def post(self,request):
+     with transaction.atomic(): 
         password=request.data.get('password')
         try:
             user=request.user
@@ -105,12 +112,11 @@ class Logout(APIView):
         permission_classes = [IsAuthenticated]
         def post(self, request):
             try:
-                refresh_token = request.data.get("refresh")
-                token = RefreshToken(refresh_token)
-                # remove the access token and blacklist access token
-                token.blacklist()
-                return Response({"message":"you have logged out"},status=status.HTTP_200_OK)
+                refresh_token=request.data.get("refresh")
+                print(refresh_token)
+                return Response("nice")
                 
-            except AttributeError:
-                return Response({"error":"Token not found"})
+            except Exception as e:
+                return Response({"error":str(e)},status=status.HTTP_400_BAD_REQUEST
+)
             
