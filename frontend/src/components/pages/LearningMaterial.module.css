@@ -1,0 +1,8 @@
+.learning_container {
+  background-color: var(--Cream);
+  border-radius: 1rem;
+}
+.material {
+  background-color: var(--NavyBlue);
+  color: var(--White);
+}

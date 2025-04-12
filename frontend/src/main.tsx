@@ -8,6 +8,8 @@ import VerifyEmail from "./components/auth/VerifyEmail.tsx";
 import ResetPassword from "./components/auth/ResetPassword.tsx";
 import LoginUser from "./components/auth/LoginUser.tsx";
 
+import LearningMaterial from "./components/pages/LearningMaterial.tsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/reset-password",
     element: <ResetPassword />,
+  },
+  {
+    path: "/materials",
+    element: <LearningMaterial />,
   },
 ]);
 

@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { LoginUserInterface } from "../../interface/user";
 
 import axiosInstance from "../../services/apiInterceptor";
-import { useNavigate } from "react-router-dom";
-import Logo from "../pages/logo";
+
+import Logo from "../pages/Logo";
 import styles from "./LoginUser.module.css";
 
 const LoginUser = () => {
-  const navigate = useNavigate();
-
   const [user, setUser] = useState<LoginUserInterface>({
     username: "",
     password: "",

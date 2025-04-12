@@ -112,9 +112,13 @@ class Logout(APIView):
         permission_classes = [IsAuthenticated]
         def post(self, request):
             try:
-                refresh_token=request.data.get("refresh")
-                print(refresh_token)
-                return Response("nice")
+                auth_header =request.headers.get("Authorization")
+                if auth_header and auth_header.startswith("Bearer"):
+                    token=auth_header.split(" ")[1]
+                    
+                # refresh_token=request.data.get("refresh")
+                # print(refresh_token)
+                # return Response("nice")
                 
             except Exception as e:
                 return Response({"error":str(e)},status=status.HTTP_400_BAD_REQUEST

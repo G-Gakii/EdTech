@@ -1,4 +1,4 @@
-import Logo from "./logo";
+import Logo from "./Logo";
 import styles from "./NavBar.module.css";
 const NavBar = () => {
   return (
@@ -39,7 +39,7 @@ const NavBar = () => {
               <a
                 className={`nav-link active ${styles.links}`}
                 aria-current="page"
-                href="#"
+                href="/materials"
               >
                 learning materials
               </a>

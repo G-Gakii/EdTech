@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 import random
 from dotenv import load_dotenv
 import os
+import uuid
 
 
 # Create your models here.
@@ -57,7 +58,8 @@ class UserManager(BaseUserManager):
         
 
 class User(AbstractUser):
-    id=models.UUIDField(verbose_name=id,primary_key=True,unique=True)
+    id=models.UUIDField(verbose_name=id,primary_key=True,unique=True,default=uuid.uuid4
+)
     username=models.CharField(verbose_name="username",max_length=255,unique=True)
     email=models.EmailField(verbose_name="email",max_length=255,unique=True)
     password=models.CharField(verbose_name="password",max_length=255)
