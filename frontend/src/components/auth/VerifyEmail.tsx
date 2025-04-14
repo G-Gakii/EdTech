@@ -36,7 +36,7 @@ const VerifyEmail = () => {
         <Logo />
       </div>
       <h2 className="px-3">Verification code</h2>
-      <div className="form-group p-3 fs-3">
+      <div className="form-group p-3 fs-5">
         <label htmlFor="otp">
           Please enter verification code we have sent to your email
         </label>

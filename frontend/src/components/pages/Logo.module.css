@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
+
 .brand {
   color: var(--NavyBlue);
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 4rem;
+  font-family: "UnifrakturMaguntia", cursive;
 }

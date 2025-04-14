@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap");
+@import "src/variables.css";
+
 .learning_container {
   background-color: var(--Cream);
   border-radius: 1rem;
@@ -5,4 +8,25 @@
 .material {
   background-color: var(--NavyBlue);
   color: var(--White);
+  margin: 1rem;
+  padding: 0.4ren;
+}
+.card {
+  max-width: 700px;
+  background-color: "#FAF3EB";
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+}
+.first {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-family: "UnifrakturMaguntia", cursive;
+  background-color: #f5e8d5;
+  width: 7rem;
+  color: #a27541;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

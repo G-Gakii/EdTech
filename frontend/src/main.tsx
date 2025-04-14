@@ -9,6 +9,7 @@ import ResetPassword from "./components/auth/ResetPassword.tsx";
 import LoginUser from "./components/auth/LoginUser.tsx";
 
 import LearningMaterial from "./components/pages/LearningMaterial.tsx";
+import AddLearningMaterials from "./components/pages/AddLearningMaterials.tsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/materials",
     element: <LearningMaterial />,
+  },
+  {
+    path: "/materials/add",
+    element: <AddLearningMaterials />,
   },
 ]);
 

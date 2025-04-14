@@ -14,7 +14,12 @@ const Hero = () => {
         experience
       </p>
       <div className="btn d-flex flex-column gap-3 flex-sm-row">
-        <button className={`btn ${styles.material}`}>Explore materials</button>
+        <button className={`btn ${styles.material}`}>
+          {" "}
+          <a className="text-decoration-none" href="/materials">
+            Explore materials
+          </a>
+        </button>
         <button className="btn btn-light">Ask a question</button>
         <button className={`btn ${styles.material}`}>add materials</button>
       </div>

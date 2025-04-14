@@ -16,7 +16,7 @@ const HowItWorks = () => {
             <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5" />
           </svg>
           <h4 className="">Share</h4>
-          <p className="text-center">Upload your notes,video etc</p>
+          <p className="text-center">Upload your notes,video </p>
         </div>
         <div className="d-flex flex-column align-items-center ">
           <svg
@@ -44,7 +44,7 @@ const HowItWorks = () => {
             <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0" />
           </svg>
           <h4>Ask</h4>
-          <p className="text-center">Get your question answered</p>
+          <p className="text-center">Get your questions answered</p>
         </div>
         <div className="d-flex flex-column align-items-center ">
           <svg

@@ -1,0 +1,31 @@
+@import "src/variables.css";
+.addlearning_container {
+  background-color: var(--Cream);
+  border-radius: 1rem;
+  max-width: 700px;
+  color: var(--NavyBlue);
+}
+form {
+  background-color: var(--White);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+input,
+textarea {
+  background-color: transparent;
+}
+.warning {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--creamWhitish);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.button {
+  background-color: var(--NavyBlue);
+  color: var(--White);
+  font-size: 1.2rem;
+  width: 100%;
+}

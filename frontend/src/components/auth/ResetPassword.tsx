@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axiosInstance from "../../services/apiInterceptor";
-import Logo from "../pages/logo";
+import Logo from "../pages/Logo";
 import styles from "./ResetPassword.module.css";
 
 const ResetPassword = () => {
