@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
      "corsheaders",
      "user_app",
+     'questions_app',
      "learningMaterial_app",
      'django_filters',
 ]
