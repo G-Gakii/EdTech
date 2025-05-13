@@ -6,6 +6,7 @@ import axios from "axios";
 import Pagination from "../../utils/Pagination";
 import Footer from "./Footer";
 import { ILearningMaterial } from "../../interface/material";
+import { axiosInstanceNoInterceptor } from "../../services/apiInterceptor";
 
 const LearningMaterial = () => {
   const [materials, setMaterials] = useState<ILearningMaterial[]>([]);
@@ -20,9 +21,7 @@ const LearningMaterial = () => {
 
   const fetchMaterial = async () => {
     try {
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/learning/materials`
-      );
+      const res = await axiosInstanceNoInterceptor.get(`/learning/materials`);
       console.log(res.data.results);
 
       setMaterials(res.data.results);
@@ -79,7 +78,7 @@ const LearningMaterial = () => {
     <>
       <div className={`container p-5 ${styles.learning_container}`}>
         <NavBar />
-        <h1 className="text-center">Learning Materials</h1>
+        <h1 className="">Learning Materials</h1>
         <div
           className="input-group mb-3"
           style={{ maxWidth: "1000px", margin: "0 auto" }}

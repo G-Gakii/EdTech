@@ -1,6 +1,9 @@
 import axios from "axios";
 
 const BaseUrl = import.meta.env.VITE_API_URL;
+export const axiosInstanceNoInterceptor = axios.create({
+  baseURL: BaseUrl,
+});
 
 const axiosInstance = axios.create({
   baseURL: BaseUrl,

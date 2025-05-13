@@ -1,0 +1,21 @@
+@import "src/variables.css";
+.mainContainer {
+  background-color: var(--Cream) !important;
+}
+button {
+  background-color: var(--Cream) !important;
+}
+.search {
+  width: 100%;
+  border: none;
+  border-radius: 0.5rem;
+}
+.container {
+  min-width: 500px;
+}
+.card__button {
+  background-color: var(--White) !important;
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: var(--NavyBlue);
+}

@@ -30,12 +30,15 @@ const NavBar = () => {
                 aria-current="page"
                 href="/materials"
               >
-                learning materials
+                materials
               </a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link active ${styles.links}`} href="#">
-                Q&A Forum
+              <a
+                className={`nav-link active ${styles.links}`}
+                href="/question/answer"
+              >
+                Q&A
               </a>
             </li>
             <li className="nav-item">
@@ -46,7 +49,7 @@ const NavBar = () => {
 
             <li className="nav-item">
               <a className={`nav-link active ${styles.links}`} href="/register">
-                Get started
+                Register
               </a>
             </li>
           </ul>

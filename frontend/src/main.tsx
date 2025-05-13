@@ -10,6 +10,8 @@ import LoginUser from "./components/auth/LoginUser.tsx";
 
 import LearningMaterial from "./components/pages/LearningMaterial.tsx";
 import AddLearningMaterials from "./components/pages/AddLearningMaterials.tsx";
+import QuestionAndAnswer from "./components/pages/QuestionAndAnswer/QuestionAndAnswer.tsx";
+import Question from "./components/pages/Question/Question.tsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
   {
     path: "/materials/add",
     element: <AddLearningMaterials />,
+  },
+  {
+    path: "/question/answer",
+    element: <QuestionAndAnswer />,
+  },
+  {
+    path: "/question",
+    element: <Question />,
   },
 ]);
 
