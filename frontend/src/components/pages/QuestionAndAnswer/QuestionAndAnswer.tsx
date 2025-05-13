@@ -127,7 +127,9 @@ const QuestionAndAnswer = () => {
               return (
                 <div className={`card my-3 `}>
                   <div className="card-body">
-                    <h5 className="card-title my-3">{question.question}</h5>
+                    <h5 className="card-title my-3 text-capitalize">
+                      {question.question}
+                    </h5>
                     <div className="d-flex align-items-center mb-3">
                       <button className=" btn me-5">{question.subject}</button>
                       <span>

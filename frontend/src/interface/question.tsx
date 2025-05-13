@@ -30,3 +30,9 @@ export interface Question {
   comment: comment[];
   answer: Answer[];
 }
+
+export interface QuestionPOsted {
+  question: string;
+  subject: string;
+  description?: string;
+}

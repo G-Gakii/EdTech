@@ -5,12 +5,14 @@ import axiosInstance from "../../services/apiInterceptor";
 
 import Logo from "../pages/Logo";
 import styles from "./LoginUser.module.css";
+import { useNavigate } from "react-router-dom";
 
 const LoginUser = () => {
   const [user, setUser] = useState<LoginUserInterface>({
     username: "",
     password: "",
   });
+  const navigate = useNavigate();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUser((prev) => ({ ...prev, [name]: value }));
@@ -23,6 +25,7 @@ const LoginUser = () => {
       console.log(res);
       localStorage.setItem("refresh", res.data.refresh);
       localStorage.setItem("access", res.data.access);
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +45,7 @@ const LoginUser = () => {
         <div className="form-group p-3">
           <label htmlFor="username">Username</label>
           <input
-            type="email"
+            type="text"
             className="form-control p-3"
             placeholder="e.g jane doe"
             name="username"

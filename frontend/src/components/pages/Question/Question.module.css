@@ -1,0 +1,25 @@
+.form {
+  background-color: var(--Cream);
+  color: (var(--NavyBlue));
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form__buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  button {
+    width: 100%;
+  }
+}
+.form__buttonContainer__button__submit {
+  background-color: var(--NavyBlue) !important;
+  color: var(--White);
+}
+.form__buttonContainer__button__submit:hover {
+  background-color: var(--White) !important;
+  color: var(--NavyBlue);
+}
+.form__buttonContainer__button__cancel {
+  background-color: var(--White) !important;
+}

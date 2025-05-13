@@ -32,15 +32,19 @@ axiosInstance.interceptors.response.use(
       const refreshToken = localStorage.getItem("refresh");
 
       if (!refreshToken) {
-        console.error("No refresh token available, user must re-login.");
+        alert("Kindly  re-login In.");
+        window.location.href = "/login";
         return Promise.reject(error);
       }
 
       try {
         // Attempt to refresh the access token
-        const res = await axios.post(`${BaseUrl}/auth/refresh/`, {
-          refresh: refreshToken,
-        });
+        const res = await axiosInstanceNoInterceptor.post(
+          `/auth/token/refresh/`,
+          {
+            refresh: refreshToken,
+          }
+        );
 
         // Store new access token
         localStorage.setItem("access", res.data.access);
@@ -51,12 +55,19 @@ axiosInstance.interceptors.response.use(
 
         // Retry the original request with new token
         return axiosInstance(originalRequest);
-      } catch (refreshError) {
-        console.error("Token refresh failed, user must re-login.");
+      } catch (refreshError: any) {
+        if (
+          refreshError.response?.data?.code === "token_not_valid" ||
+          refreshError.response?.status === 401
+        ) {
+          localStorage.removeItem("access");
+          localStorage.removeItem("refresh");
+          alert("Session expired, kindly log in again.");
+          window.location.href = "/login";
+        }
         return Promise.reject(refreshError);
       }
     }
-
     return Promise.reject(error);
   }
 );
