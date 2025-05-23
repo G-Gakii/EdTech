@@ -49,6 +49,7 @@ INSTALLED_APPS = [
      "user_app",
      'questions_app',
      "learningMaterial_app",
+     "shuleconnect_app",
      'django_filters',
 ]
 

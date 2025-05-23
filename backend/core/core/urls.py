@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/auth/",include("user_app.api.urls")),
     path("api/learning/",include("learningMaterial_app.api.urls")),
-    path("api/learning/",include("questions_app.api.urls"))
+    path("api/learning/",include("questions_app.api.urls")),
+    path("api/",include("shuleconnect_app.api.urls"))
     
 ]
